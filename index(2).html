@@ -9,16 +9,16 @@
   <script type="text/babel">
     const root = document.getElementById("root");
 
-    function Btn({ text }) {
+    function Btn({ text, changesValue }) {
       return (
         <button
+          onClick={changesValue}
           style={{
             backgroundColor: "tomato",
             color: "white",
             padding: "10px 20px",
             border: 0,
             borderRadius: 10,
-            fontSize: big ? 18 : 16,
           }}
         >
           {text}
@@ -27,10 +27,12 @@
     }
 
     function App() {
+      const [value, setValue] = React.useState("Save Changes");
+      const changesValue = () => setValue("Revert Changes");
       return (
         <div>
-          <Btn text="Save Changes" big={true} />
-          <Btn text="Continue" big={false} />
+          <Btn text={value} changesValue={changesValue} />
+          <Btn text="Continue" />
         </div>
       );
     }
