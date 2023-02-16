@@ -16,7 +16,7 @@ function App() {
   return (
     <div>
       <h1 style={{ backgroundColor: "lightblue" }}>
-        The Coins! ({coins.length})
+        The Coins! {loading ? "" : `(${coins.length})`}
       </h1>
       {loading ? <strong>Loading...</strong> : null}
       <select>
